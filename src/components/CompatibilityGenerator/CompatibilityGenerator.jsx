@@ -64,7 +64,7 @@ Despite these challenges, by appreciating Aries's pioneering spirit and Libra's 
   };
 
   return (
-    <div>
+    <div className={css.container}>
       <h1>Compatibility Horoscope</h1>
       <select value={sign} onChange={e => setSign(e.target.value)}>
         <option value="aries">Aries</option>

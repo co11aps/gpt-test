@@ -2,7 +2,11 @@
     width: 100%;
     min-height: 100px;
     ;
-    border: 1px solid red;
+    border: 1px solid black;
     border-radius: 8px;
     padding: 16px;
+}
+
+.container {
+    padding: 18px;
 }

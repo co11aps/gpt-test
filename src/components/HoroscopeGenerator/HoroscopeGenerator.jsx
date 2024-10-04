@@ -69,7 +69,7 @@ const HoroscopeGenerator = ({ language }) => {
   };
 
   return (
-    <div>
+    <div className={css.container}>
       <h1>Today&apos;s Horoscope</h1>
       <select value={sign} onChange={e => setSign(e.target.value)}>
         <option value="aries">Aries</option>
