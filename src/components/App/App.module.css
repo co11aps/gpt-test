@@ -1,5 +1,9 @@
 .container {
-    width: 1080px;
+    width: 370px;
     margin: 0 auto;
     padding: 64px;
+
+    @media only screen and (min-width: 768px) {
+        width: 1280px;
+    }
 }
