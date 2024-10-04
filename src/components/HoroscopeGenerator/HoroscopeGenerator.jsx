@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import OpenAI from 'openai';
+import css from './HoroscopeGenerator.module.css';
 
-const HoroscopeGenerator = () => {
+const HoroscopeGenerator = ({ language }) => {
   const [sign, setSign] = useState('aries');
-  const [language, setLanguage] = useState('Ukrainian');
   const [horoscope, setHoroscope] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const openAIClient = new OpenAI({
     apiKey: import.meta.env.VITE_OPENAI_API_KEY,
@@ -20,6 +21,7 @@ const HoroscopeGenerator = () => {
 
   const fetchHoroscope = async () => {
     try {
+      setLoading(true);
       const chatCompletion = await openAIClient.chat.completions.create({
         // model: 'gpt-4o',
         model: 'gpt-4o-mini',
@@ -61,15 +63,13 @@ const HoroscopeGenerator = () => {
       console.log(chatCompletion);
     } catch (error) {
       console.error('Error fetching horoscope:', error);
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div>
-      <select value={language} onChange={e => setLanguage(e.target.value)}>
-        <option value="Ukrainian">Ukrainian</option>
-        <option value="English">English</option>
-      </select>
       <h1>Today&apos;s Horoscope</h1>
       <select value={sign} onChange={e => setSign(e.target.value)}>
         <option value="aries">Aries</option>
@@ -88,7 +88,9 @@ const HoroscopeGenerator = () => {
       <button onClick={fetchHoroscope}>Get Horoscope</button>
       <div>
         <h2>Your Horoscope:</h2>
-        <p>{horoscope}</p>
+        <div className={css.horoscope}>
+          {loading ? <p>Loading...</p> : <p>{horoscope}</p>}
+        </div>
       </div>
     </div>
   );

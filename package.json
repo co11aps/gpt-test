@@ -11,9 +11,11 @@
   },
   "dependencies": {
     "dotenv": "^16.4.5",
+    "modern-normalize": "^3.0.1",
     "openai": "^4.67.1",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",

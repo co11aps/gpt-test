@@ -8,3 +8,12 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+body {
+  width: 1280px;
+  margin: 0 auto;
+}
+
+select {
+  margin-right: 16px;
+}
